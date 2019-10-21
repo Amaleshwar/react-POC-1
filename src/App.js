@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  // hello
   render() {
     return (
       <div className="App">
@@ -11,6 +12,7 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code>
           </p>
+          <h2>hello</h2>
           <a
             className="App-link"
             href="https://reactjs.org"
