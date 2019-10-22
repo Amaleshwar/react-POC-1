@@ -83,6 +83,7 @@
   background-color: white;
   color: black;
   flex: 1;
+  cursor: pointer;
 }
 .operator{
   background-color: #c7e0e7;
@@ -177,7 +178,73 @@
 } */
 
 
-/*  popup  */
+
+/* edited on 10/22/2019   */
+
+.Logout{
+  right: 0px;
+  position: absolute;
+  margin: 25px;
+}
+
+.Menu{
+
+  color: white;
+  font-size: 20px;
+  justify-content: center;
+  background: #61dafb;
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+
+  
+}
+#menu-link{
+  color: white;
+  margin: 0px 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 1px !important;
+  text-align: center;
+  /* border: 1px solid red; */
+} 
+#menu-link:hover {
+  background: #f39c12;
+  /* background: darken($primarycolor, 20%); */
+
+}
+
+.download_inner{
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  color: white;
+}
+
+.download_inner ul{
+  position: fixed;
+} 
+
+/* Popup */
+
+.popup-app{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  flex-direction:column;
+  flex: 1;
+}
+.popup-wrapper{
+
+  height: auto;
+  width: auto;
+  /* background-color: #61dafb; */
+
+}
 
 .popup {
   position: fixed;
@@ -191,7 +258,7 @@
   background-color: rgba(0,0,0, 0.5);
   z-index: 1;
 }
-.popup_inner {
+.popup_inner{
   position: absolute;
   left: 25%;
   right: 25%;

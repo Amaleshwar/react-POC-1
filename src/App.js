@@ -7,27 +7,25 @@ import Uploadimage from './Uploadimage';
 import Login from './Login';
 import Videoplayer from './Videoplayer';
 import ReactVPlayer from './ReactVPlayer';
+import Downloadimage from "./Downloadimage";
+import Popupexample from "./Popupexample";
+
+var button ='';
 
 
-
-
-
-//const el  = document.querySelector("#myVideo");
-// var SCREEN_WIDTH = window.innerWidth;
-// var SCREEN_HEIGHT = window.innerHeight;
-//let renders = parseInt(sessionStorage.getItem('var'));
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = { Loggedin: sessionStorage.getItem('state') ? JSON.parse(sessionStorage.getItem('state')).Loggedin : false,
                     temp:null,
+                    CurComp: <Clock/>
                   }
     // this.state = { Loggedin: true,
     // temp:null,
     //}
   }
-//Loggedin: sessionStorage.getItem('state') ? JSON.parse(sessionStorage.getItem('state')).Loggedin : false
+
 
 
 
@@ -62,44 +60,46 @@ componentWillUnmount() {
 }
 
 
+menuchange(menuitem){
+ 
+ 
+    this.setState({ CurComp: menuitem })
+ 
+ 
+}
 
 render(){
 
- // renders += 1;
-//  console.log(renders);
+   //var menuitems =  this.state.menuitems.map((menuitem)=> <div id="menu-link" onClick={()=>this.menuchange(menuitem)}> {menuitem}</div> )
+  
   return (
     <div>
 
-      {/* <div className="background-test">    
-      <video id="myVideo" loop autoPlay>
-      <source src={video} type="video/mp4" />
-      Your browser does not support the video tag.
-      </video>
-      <img className='inst-img'  id="myVideo" src={image} alt="" />
-      <div className="content">
-        <h1>Heading</h1>
-        <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu recteque expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei. Id qui nemore latine molestiae, ad mutat oblique delicatissimi pro.</p>
-        <button id="myBtn" onclick="myFunction()">Pause</button>
-      </div>
-      </div> */}
 
     <div className="App" id="appid" >
       <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
-        <h2 className="header-Text">Calculator - React App <br/></h2>
-  {/* {this.state.Loggedin &&  <button  id="submit" value="Login" onClick={() => this.Logout()}>Logout </button>} */}
+        <h2 className="header-Text">  React App <br/></h2>
+        
+  {this.state.Loggedin &&  <button  id="submit" className="Logout" value="Login" onClick={() => this.Logout()}>Logout </button>} 
       </header>
-      {/* <div  className="App-body">
-  {!this.state.Loggedin && <Login parentCallback = {this.callbackFunction}/> }
-  {this.state.Loggedin && <Calculator /> }
-  {this.state.Loggedin && <Clock /> }
-  {this.state.Loggedin && <Uploadimage /> }
-</div> */}
-
-
-{this.state.Loggedin ? <div  className="App-body">  <button  id="submit" value="Login" onClick={() => this.Logout()}>Logout </button>
+      <div className="Menu">  
+          <div id="menu-link" onClick={()=>this.menuchange(<Calculator />)}> Calculator</div>
+          <div id="menu-link" onClick={()=>this.menuchange( <Uploadimage />)}> Upload Image</div>
+          <div id="menu-link" onClick={()=>this.menuchange( <Downloadimage/>)}> Download Image</div>
+          <div id="menu-link" onClick={()=>this.menuchange(<ReactVPlayer/>)}> Video Player</div>
+          <div id="menu-link" onClick={()=>this.menuchange(<Popupexample/>)}> Popup</div>
+       </div>
+      {/* Ternary operator */}
+       {/*
+{this.state.Loggedin ? <div  className="App-body"> 
  <Calculator /> <Clock /> <Uploadimage />  <Videoplayer/> <ReactVPlayer/></div> :
-   <div  className="App-body"> <Login parentCallback = {this.callbackFunction}/>    </div> }
+   <div  className="App-body"> <Login parentCallback = {this.callbackFunction}/>   <Clock />  </div> }   */}
+
+
+{this.state.Loggedin ? <div  className="App-body"> 
+  {this.state.CurComp} </div> :
+   <div  className="App-body"> <Login parentCallback = {this.callbackFunction}/>   <Clock />  </div> }
 
     </div>
     </div>

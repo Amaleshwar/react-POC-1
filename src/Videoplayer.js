@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Player } from  'video-react';
-import video from './images/trailer_hd.mp4';
-
+//import video from 'http://techslides.com/demos/sample-videos/small.webm'; // paste video addtess or location
 
 
 export default class Videoplayer extends Component {
@@ -15,9 +14,9 @@ export default class Videoplayer extends Component {
             <div className="vidplay-app">
                 <div className="vidplay-wrapper"> 
                         <h3>Video Player........................................................</h3>
-                        <Player>
+                       {/* <Player>
                             <source src={video} />
-                        </Player>
+                        </Player> */}
                 </div>
             </div>
         );
