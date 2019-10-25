@@ -9,6 +9,7 @@ import Videoplayer from './Videoplayer';
 import ReactVPlayer from './ReactVPlayer';
 import Downloadimage from "./Downloadimage";
 import Popupexample from "./Popupexample";
+import Imageslide from "./imageslide";
 
 var button ='';
 
@@ -84,6 +85,7 @@ render(){
   {this.state.Loggedin &&  <button  id="submit" className="Logout" value="Login" onClick={() => this.Logout()}>Logout </button>} 
       </header>
       <div className="Menu">  
+      <div id="menu-link" onClick={()=>this.menuchange(<Clock />)}> Home</div>
           <div id="menu-link" onClick={()=>this.menuchange(<Calculator />)}> Calculator</div>
           <div id="menu-link" onClick={()=>this.menuchange( <Uploadimage />)}> Upload Image</div>
           <div id="menu-link" onClick={()=>this.menuchange( <Downloadimage/>)}> Download Image</div>
@@ -97,7 +99,7 @@ render(){
    <div  className="App-body"> <Login parentCallback = {this.callbackFunction}/>   <Clock />  </div> }   */}
 
 
-{this.state.Loggedin ? <div  className="App-body"> 
+{this.state.Loggedin ? <div  className="App-body"> <Imageslide/>
   {this.state.CurComp} </div> :
    <div  className="App-body"> <Login parentCallback = {this.callbackFunction}/>   <Clock />  </div> }
 
