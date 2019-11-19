@@ -13,7 +13,7 @@
 
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
-    height: 10vmin;
+    height: 40px;
     pointer-events: none;
   }
 
@@ -28,7 +28,31 @@
     flex-wrap:wrap;
     /* background: url("images\molecular-background.jpg") no-repeat center center fixed; */
   }
-
+  .App-login-body{
+       /* display: flex;
+    flex-direction: column; */
+    color: white;
+    /* flex: 1;
+    flex-wrap:wrap; */
+    margin: 10px;
+    display: inline-block;
+  }
+.App-login-body:hover{
+  background-color: #61dafb;
+}
+  /* .login-wrapper{
+    display: inline-block;
+  } */
+ .login-wrapper>div{
+    margin: 5px;
+  }
+  tr{
+    text-align: left;   
+  }
+  table{
+    border-collapse: initial;
+  }
+ 
   .App-link {
     color: #61dafb;
   }
@@ -72,6 +96,7 @@
     display: flex;
     width: auto;
     background-color: white;
+    padding: 3px;
   }
   .btn{
     height: 2em;
@@ -91,12 +116,13 @@
   .eval{
     background-color: rgb(117, 152, 175);
   }
-  .input
+  .cal-input
   {
     background-color: white;
     color: black;
-    height: 4em;
+    height: 3em;
     flex: 1;
+    padding: 6px;
   }
 
   /* Clock Componnet*/
@@ -182,9 +208,9 @@
   /* edited on 10/22/2019   */
 
   .Logout{
-    right: 0px;
+    right: 4%;
     position: absolute;
-    margin: 25px;
+    margin: 5px;
   }
 
   .Menu{
@@ -195,11 +221,9 @@
     background: #61dafb;
     display: flex;
     font-size: 24px;
-    justify-content: center;
-
     
   }
-  #menu-link{
+  .menu-link{
   
     color: white;
     margin: 0px 10px;
@@ -208,26 +232,20 @@
     border-radius: 1px !important;
     text-align: center;
     /* border: 1px solid red; */
-  } 
-  #menu-link:hover {
+  }
+  /* #menu-link #active{
+    background: #f39c12;
+  }  */
+  .menu-link:hover  {
     background: #f39c12;
     /* background: darken($primarycolor, 20%); */
-
+  
+  }
+   .orange {
+    background: #f39c12;
   }
 
-  .download_inner{
-    position: absolute;
-    left: 25%;
-    right: 25%;
-    top: 25%;
-    bottom: 25%;
-    margin: auto;
-    color: white;
-  }
 
-  .download_inner ul{
-    position: fixed;
-  } 
 
   /* Popup */
 
@@ -274,7 +292,7 @@
    .imgslide-app{
    
     height: auto;
-    width: auto;
+    width: 100%;
   }
   .imgslide-wrapper{
 
@@ -283,3 +301,31 @@
     /* background-color: #61dafb; */
 
   } 
+
+  /* Carousel on 10/31/2019 */
+
+  /* downloadimage on 11/4/2019 */
+  .inpt-search{
+   margin: 10px;
+  }
+  .download_inner{
+    position: absolute;
+    left: 25%;
+    /* right: 25%;
+    top: 25%;  
+    bottom: 25%;*/
+    margin: auto;
+    color: white;
+  }
+
+  .download_inner ul {
+    list-style-type: none; /* to hide bullets*/
+   text-align: left;
+   margin: 10px;
+  } 
+  .download_inner>ul>a{
+    text-decoration:none;
+  } 
+ 
+
+  

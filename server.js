@@ -7,6 +7,15 @@ app.use(cors());
 var path = require('path');
 var fs = require('fs');
 
+var sql = require("mssql");
+// config for your database
+var config = {
+    user: 'amaleshwar',
+    password: '8977Amal868654',
+    server: 'WKSBAN18ALF7042\\SQLEXPRESS', 
+    database: 'Login_Db' 
+};
+
 var filePath ='';
 
 app.post('/upload', function (req, res) { 
@@ -28,7 +37,7 @@ app.get('/getfiles', function (req, res) {
 
     //to get the names of all files in a folder.                          
   let filedir = path.join(__dirname, '/public/images/');
-  var files = fs.readdirSync(filedir);
+  var files = fs.readdirSync(filedir); 
   //res.send(files);
   console.log(files.length);
   res.send(files);
@@ -63,20 +72,14 @@ app.get('/getfiles', function (req, res) {
 //-------------------------------------------------------------------------------------
 
 
-app.post('/validate', function (req, res) {
-  var sql = require("mssql");
-  // config for your database
-  var config = {
-      user: 'amaleshwar',
-      password: '8977Amal868654',
-      server: 'WKSBAN18ALF7042\\SQLEXPRESS', 
-      database: 'Login_Db' 
-  };
+app.post('/user_validate', function (req, res) {
+ 
   
   let username = req.body.user_name.trim();
   let userpwd = req.body.user_pwd.trim();
-  console.log(username,userpwd)
-  const getUserDetails = 'select User_Name, Password from Login_Details where User_Name=@uname and Password=@pwd';
+
+  // const getUserDetails = 'select User_Name, Password from Login_Details where User_Name=@uname and Password=@pwd';
+  const getUserDetails = 'select User_Name, Password from user_details where User_Name=@uname and Password=@pwd';
 
   // const getUserDetails = 'select *  from Login_Details';
 
@@ -116,6 +119,48 @@ app.post('/validate', function (req, res) {
     console.log(err);
     res.send("Error");
   }); 
+});
+
+app.post('/user_register', function (req, res) {
+
+   
+  let username = req.body.user_name.trim();
+  let userpwd = req.body.user_pwd.trim();
+  let useremail = req.body.user_email_id.trim();
+  let usercontact = req.body.user_cont_no.trim();
+
+  const UpdateUserDetails = 'insert into user_details values (@uname, @pwd,@uemail,@ucontact)';
+
+  // const getUserDetails = 'select *  from Login_Details';
+
+  // connect to your database
+  
+  sql.connect(config).then( function () {
+
+   
+    var request = new sql.Request();
+    request.input('uname',username);
+    request.input('pwd',userpwd);
+    request.input('uemail',useremail);
+    request.input('ucontact',usercontact);
+   // request.multiple =true;
+
+    request.query(UpdateUserDetails).then(function (recordSet){   
+     
+      res.send("Registered Successfully ");
+      sql.close();
+           
+    }).catch(function (err){
+        console.log(err);
+        res.send("Error");
+       sql.close();
+    });
+  }).catch(function (err){
+    console.log(err);
+    res.send("Error");
+  }); 
+
+
 });
 
 app.listen(8000, function() {
