@@ -1,6 +1,9 @@
 import React from 'react';
 import Axios from 'axios';
 
+import loginimg from './images/login-img.jpg';
+import loginimg1 from './images/molecular-background.jpg';
+import loginimg2 from './images/login-img.jpg';
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -98,19 +101,23 @@ export default class Login extends React.Component {
     render() { 
         return ( 
         <div id="LoginPopup"  className="login-wrapper">
+            
                     <div className="imgcontainer">
                         <button  id="submit" value="Login" onClick={() => this.TologinUser()}>Login </button> &nbsp;
                         <button  id="submit" value="Login" onClick={() => this.Tocreateuser()}>New User </button>
                         <strong></strong>
                     </div>
-          {this.state.loginbox &&  <div className="Login-box">
+
+          {this.state.loginbox &&  <div className="Login-box row">
                     {/* <div> <strong>  Username: </strong><input type="text" name="username" id="username" title="Enter User Name" placeholder="Enter UserName" /> <br /> </div>
                     <div>  <strong> Password: </strong> <input type="password"  name="password" id="password" placeholder="Enter Password" /> <br />  </div>
                     <div> 
                      <button  id="submit" value="Login" onClick={(e) => this.validateUser(e)}>Login </button> &nbsp;
                     </div>{this.state.errormsg} */}
-
-                <table>
+                                    <div className="login-img col-sm-6 col-md-6 col-lg-6">
+                            <img src={loginimg} className="login-img-tag" alt={"hi"} />
+                    </div>
+                <table className="login col-sm-6 col-md-6 col-lg-6">
                     <tr><td>Username</td></tr>
                     <tr><input type="text" name="username" id="username" title="Enter User Name" placeholder="Enter UserName" /> </tr>
                     <tr> Password</tr>
@@ -133,7 +140,7 @@ export default class Login extends React.Component {
                     <button  id="submit" value="Login" onClick={() => this.handlenewuser()}>Register </button>
                     </div>{this.state.errormsg} */}
 
-                    <table>
+                    <table className="login">
                     <tr><input type="text" name="username" id="uname_register" title="Enter User Name" placeholder="Enter UserName" /></tr>
                     <tr><input type="text"  name="password" id="email_id"  placeholder="Enter Email ID" onBlur={()=>this.handleemailId()}/></tr>
                     <tr><input type="password"  name="password" id="pwd_register" placeholder="Enter Password" /></tr>

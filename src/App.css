@@ -28,6 +28,10 @@
     flex-wrap:wrap;
     /* background: url("images\molecular-background.jpg") no-repeat center center fixed; */
   }
+
+
+   /* Login Page */
+
   .App-login-body{
        /* display: flex;
     flex-direction: column; */
@@ -36,26 +40,33 @@
     flex-wrap:wrap; */
     margin: 10px;
     display: inline-block;
+    background-color: white;
+
   }
-.App-login-body:hover{
-  background-color: #61dafb;
-}
-  /* .login-wrapper{
-    display: inline-block;
-  } */
+
+  .login-wrapper{
+   padding: 20px;
+  }
  .login-wrapper>div{
     margin: 5px;
   }
   tr{
     text-align: left;   
   }
-  table{
+  /* .login-box {
+    background-color: skyblue;
+  } */
+  .login-img-tag{
+    width: 100%;
+  }
+  .login{
     border-collapse: initial;
   }
- 
   .App-link {
     color: #61dafb;
   }
+
+
 
   @keyframes App-logo-spin {
     from {
@@ -327,5 +338,19 @@
     text-decoration:none;
   } 
  
+/* 
+  .Login-box {
+    display: flex;
+    flex-wrap: wrap;
 
+  }
   
+  .login {
+    flex-grow: 1;
+    flex-basis: 50%;
+  }
+  
+  .login:after {
+    content: "";
+    flex: auto;
+  } */
