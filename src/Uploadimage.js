@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 // const axios = require("axios");
 import axios from 'axios';
-import Downloadimage from "./Downloadimage";
+
 
 
 
@@ -52,7 +52,7 @@ export default class Uploadimage extends Component {
                 <button disabled={this.state.btndisable} type="button" onClick={(e)=>this.onFormSubmit(e)}>Upload</button>
 
       
-               {this.state.msgflag && <p>Please Upload correct File.</p>}
+               {this.state.msgflag && <div> <p style={{color:"Red"}}>File too large.</p> <p>Please, Upload correct File </p> </div>}
                </div>
         </div> 
         );

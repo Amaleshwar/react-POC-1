@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ReactPlayer from 'react-player'
-//import video from  './images/trailer_hd.mp4';
+import video from './images/trailer_hd.mp4';
 
 
 
@@ -32,8 +32,8 @@ export default class Videoplayer extends Component {
             <div className="vidplay-app"  onKeyDown={(e)=>this.handlekeypress(e)}>
                 <div className="vidplay-wrapper"> 
                         <h3>React Player.. </h3>
-                         {/* <ReactPlayer url={video} playing={this.state.playing} controls={this.state.controls} 
-                        onKeyDown={(e)=>this.handlekeypress(e)} onClick={()=>this.pauseorplay()} />  */}
+                        <ReactPlayer url={video} playing={this.state.playing} controls={this.state.controls} 
+                        onKeyDown={(e)=>this.handlekeypress(e)} onClick={()=>this.pauseorplay()} />
                 </div>
             </div>
         );
