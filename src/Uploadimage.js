@@ -19,7 +19,7 @@ export default class Uploadimage extends Component {
        const data = new FormData();
        data.append('file2',this.state.selectedFile);
 
-       axios.post("http://localhost:8000/upload",data).then(res=>{console.log(res.statusText,res.data)})
+       axios.post("http://10.33.105.106:8000/upload",data).then(res=>{console.log(res.statusText,res.data)})
         
     }
     onChange(e) {

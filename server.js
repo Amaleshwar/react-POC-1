@@ -1,9 +1,12 @@
 var express = require('express');
 var app = express();
+
 var fileUpload = require('express-fileupload');
 app.use(fileUpload());
+
 var cors = require('cors');
 app.use(cors());
+
 var path = require('path');
 var fs = require('fs');
 
@@ -73,8 +76,9 @@ app.get('/getfiles', function (req, res) {
 
 
 app.post('/user_validate', function (req, res) {
- 
-  
+  console.log("------------------------------");
+  console.log(req);
+  console.log("------------------------------");
   let username = req.body.user_name.trim();
   let userpwd = req.body.user_pwd.trim();
 
@@ -159,8 +163,6 @@ app.post('/user_register', function (req, res) {
     console.log(err);
     res.send("Error");
   }); 
-
-
 });
 
 app.listen(8000, function() {

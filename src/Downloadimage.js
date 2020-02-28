@@ -20,13 +20,13 @@ export default class Downloadimage extends Component {
 
       var promise = new Promise(function(resolve, reject) {
         // call resolve if the method succeeds
-        axios.post("http://localhost:8000/downloadpost/",formdata)
+        axios.post("http://10.33.105.106:8000/downloadpost/",formdata)
          resolve(true);
       })
       promise.then(bool => console.log(""),
        idname = document.getElementById(filename),
        
-       idname.href="http://localhost:8000/download/",
+       idname.href="http://10.33.105.106:8000/download/",
       )}
 
       componentDidMount(){
@@ -34,7 +34,7 @@ export default class Downloadimage extends Component {
         this.getfilenames();
       }
       getfilenames(){
-        axios.get("http://localhost:8000/getfiles")
+        axios.get("http://10.33.105.106:8000/getfiles")
         .then(res=>{    persons = res.data;
                        
         })

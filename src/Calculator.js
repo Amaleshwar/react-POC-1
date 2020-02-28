@@ -110,9 +110,7 @@ export default class Calculator extends Component{
                     }
                 }
             }
-            changehandle(){
-                
-            }
+          
     
     render(){
                 
@@ -120,36 +118,36 @@ export default class Calculator extends Component{
             <div className="calc-app">
                     <div className="calc-wrapper">
                         <div className="row">                               
-                            <input  value={this.state.inptvalue} placeholder=" Do Math" className="input"
-                            onKeyDown={(e)=>this.handleInputKeyDown(e)} onChange={()=>this.changehandle()} ></input>
+                            <input  value={this.state.inptvalue} placeholder=" Do Math" className="cal-input"
+                            onKeyDown={(e)=>this.handleInputKeyDown(e)}  />
                         </div>
                         <div className="row">
-                            <button  className="btn" onClick={(e)=>this.toinput(1)}>1</button>
-                            <button  className="btn" onClick={(e)=>this.toinput(2)}>2</button>
-                            <button  className="btn" onClick={(e)=>this.toinput(3)}>3</button>
-                            <button className="btn operator" disabled={this.state.btnstatus} onClick={(e)=>this.toinput('/')}>/</button>
+                            <button  className="btn-cal" onClick={(e)=>this.toinput(1)}>1</button>
+                            <button  className="btn-cal" onClick={(e)=>this.toinput(2)}>2</button>
+                            <button  className="btn-cal" onClick={(e)=>this.toinput(3)}>3</button>
+                            <button className="btn-cal operator" disabled={this.state.btnstatus} onClick={(e)=>this.toinput('/')}>/</button>
                         </div>
                         <div className="row">
-                            <button  className="btn" onClick={(e)=>this.toinput(4)}>4</button>
-                            <button  className="btn" onClick={(e)=>this.toinput(5)}>5</button>
-                            <button  className="btn" onClick={(e)=>this.toinput(6)}>6</button>
-                            <button className="btn operator" disabled={this.state.btnstatus} onClick={(e)=>this.toinput('*')}>*</button>
+                            <button  className="btn-cal" onClick={(e)=>this.toinput(4)}>4</button>
+                            <button  className="btn-cal" onClick={(e)=>this.toinput(5)}>5</button>
+                            <button  className="btn-cal" onClick={(e)=>this.toinput(6)}>6</button>
+                            <button className="btn-cal operator" disabled={this.state.btnstatus} onClick={(e)=>this.toinput('*')}>*</button>
                         </div>
                         <div className="row">
-                            <button  className="btn" onClick={(e)=>this.toinput(7)}>7</button>
-                            <button  className="btn" onClick={(e)=>this.toinput(8)}>8</button>
-                            <button  className="btn" onClick={(e)=>this.toinput(9)}>9</button>
-                            <button className="btn operator" disabled={this.state.btnstatus} onClick={(e)=>this.toinput('-')}>-</button>
+                            <button  className="btn-cal" onClick={(e)=>this.toinput(7)}>7</button>
+                            <button  className="btn-cal" onClick={(e)=>this.toinput(8)}>8</button>
+                            <button  className="btn-cal" onClick={(e)=>this.toinput(9)}>9</button>
+                            <button className="btn-cal operator" disabled={this.state.btnstatus} onClick={(e)=>this.toinput('-')}>-</button>
                         </div>
                         <div className="row">
-                            <button  className="btn" disabled={this.state.btnstatus} onClick={(e)=>this.toinput('.')}>.</button>
-                            <button  className="btn" onClick={(e)=>this.toinput(0)}>0</button>
-                            <button  className="btn eval" onClick={(e)=>this.doeval()}>=</button>
-                            <button className="btn operator" disabled={this.state.btnstatus} onClick={(e)=>this.toinput('+')}>+</button>
+                            <button  className="btn-cal" disabled={this.state.btnstatus} onClick={(e)=>this.toinput('.')}>.</button>
+                            <button  className="btn-cal" onClick={(e)=>this.toinput(0)}>0</button>
+                            <button  className="btn-cal eval" onClick={(e)=>this.doeval()}>=</button>
+                            <button className="btn-cal operator" disabled={this.state.btnstatus} onClick={(e)=>this.toinput('+')}>+</button>
                         </div>
                         <div className="row">
-                            <button className="btn clear" onClick={()=>this.clearallinput()}>CA</button>
-                            <button className="btn clear" onClick={()=>this.clearinput()}>C</button>
+                            <button className="btn-cal clear" onClick={()=>this.clearallinput()}>CA</button>
+                            <button className="btn-cal clear" onClick={()=>this.clearinput()}>C</button>
                         </div>
                     </div>
                     <span className="errormsg">{this.state.errormsg}</span>
