@@ -10,7 +10,9 @@ import ReactVPlayer from './ReactVPlayer';
 import Downloadimage from "./Downloadimage";
 import Popupexample from "./Popupexample";
 import Imageslide from "./imageslide";
-import { throwStatement } from '@babel/types';
+import EMI from "./EMI";
+import CanvasAnimation from './CanvasAnimation';
+
 
 var button ='';
 
@@ -19,7 +21,8 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { Loggedin: sessionStorage.getItem('state') ? JSON.parse(sessionStorage.getItem('state')).Loggedin : false,
+    // this.state = { Loggedin: sessionStorage.getItem('state') ? JSON.parse(sessionStorage.getItem('state')).Loggedin : false,
+    this.state = { Loggedin: true,
                     temp:null,
                     CurComp: <Clock/>,
                     menucmpts:[
@@ -28,10 +31,14 @@ class App extends React.Component {
                               { compname:Uploadimage , displayname:"Upload Image" },
                               { compname:Downloadimage, displayname:"Download Image" },
                               { compname:ReactVPlayer, displayname:"Video Player"  },
+                              { compname:EMI, displayname:"EMI"  },
                               { compname:Popupexample, displayname:"Popup"  },
                               { compname:Imageslide, displayname:"Carousel"  },
+                              {compname:CanvasAnimation, displayname:"Canvas Animation" },
                             ],
                   }
+                  // this.state = { Loggedin: sessionStorage.getItem('state') ? JSON.parse(sessionStorage.getItem('state')).Loggedin : false,
+                //}
     // this.state = { Loggedin: true,
     // temp:null,
     //}
@@ -85,6 +92,7 @@ console.log(this.state.menucmpts.displayname)
 
 render(){
   var menucmpts =this.state.menucmpts;
+
    //var menuitems =  this.state.menuitems.map((menuitem)=> <div id="menu-link" onClick={()=>this.menuchange(menuitem)}> {menuitem}</div> )
   
   return (
@@ -95,6 +103,7 @@ render(){
         <h2 className="header-Text">  React App <br/></h2>
         
   {this.state.Loggedin &&  <button  id="submit" className="Logout" value="Login" onClick={() => this.Logout()}>Logout </button>} 
+  
       </header>
   {this.state.Loggedin &&   <div className="Menu">  
           {/* 
@@ -118,7 +127,7 @@ render(){
 
 {this.state.Loggedin ? <div  className="App-body"> 
   {this.state.CurComp} </div> :
-   <div  className="App-login-body"> <Login parentCallback = {this.callbackFunction}/>   </div> }
+   <div  className="App-login-body"><Login parentCallback = {this.callbackFunction}/>   </div> }
     </div>
     </div>
   );
